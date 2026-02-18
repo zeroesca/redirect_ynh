@@ -3,7 +3,7 @@
 packaging_format = 2
 
 id = "redirect0s"
-name = "Redirect"
+name = "Redirect0s"
 description.en = "Create a redirection or a proxy to another path"
 description.fr = "Créer une redirection ou un proxy vers un autre emplacement"
 
