@@ -30,25 +30,27 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
-    [install.path]
-    type = "path"
-    default = "/redirect"
-    help = "Be careful when using this app in reverse-proxy mode: the target may require to be installed at the root of a domain (or subdomain), meaning the path is just '/'!"
+    #[install.path]
+    #type = "path"
+    #default = "/redirect"
+    #help = "Be careful when using this app in reverse-proxy mode: the target may require to be installed at the root of a domain (or subdomain), meaning the path is just '/'!"
 
     [install.redirect_type]
     ask.en = "Redirect type"
     ask.fr = "Type de redirection"
     type = "select"
+    choices.media0s = "config for media.zeroes.ca"
     choices.redirect = "Explicit redirection (HTTP 302). Redirect people to a different page."
     choices.reverseproxy = "Reverse-proxy (nginx proxy_pass). Expose an app, typically something that you manually installed (with or without Docker) locally or an another machine."
-    default = "redirect"
+    default = "media0s"
 
     [install.target]
     ask.en = "Target"
     ask.fr = "Cible"
     type = "url"
     help = "This may be something like https://some.other.website (for explicit redirect) or http://127.0.0.1:1234 for reverse-proxies."
-
+    default = "zeroes-media.s3.bhs.io.cloud.ovh.net"
+    
     [install.init_main_permission]
     type = "group"
     default = "visitors"
