@@ -10,6 +10,16 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Configuring NGINX web server..."
 
+cat << EOF >> /etc/nginx/conf.d/$domain.conf
+
+### MASTODON YNH EXTRAS START
+
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=CACHE:10m inactive=7d max_size=1g;
+
+### MASTODON YNH EXTRAS END
+EOF
+
+
 mv ../conf/{"nginx-$redirect_type.conf",nginx.conf}
 ynh_config_add_nginx
 
